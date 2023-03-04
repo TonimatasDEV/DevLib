@@ -1,0 +1,7 @@
+name: DevLib
+version: '${version}'
+main: net.tonimatasdev.devlib.DevLib
+api-version: 1.13
+load: STARTUP
+authors: [TonimatasDEV]
+description: Library for my plugins
