@@ -1,5 +1,5 @@
 name: DevLib
-version: 1.0.2
+version: 1.0.3
 main: net.tonimatasdev.devlib.DevLib
 api-version: 1.13
 load: STARTUP
