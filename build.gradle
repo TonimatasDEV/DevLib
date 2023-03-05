@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 group = 'net.tonimatasdev'
-version = '1.0.0'
+version = "${project_version}"
 
 sourceCompatibility = 8
 compileJava.options.encoding = 'UTF-8'
