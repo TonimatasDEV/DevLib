@@ -13,6 +13,8 @@ public abstract class Command implements CommandExecutor {
 
     public abstract String getPermission();
 
+    public abstract String getNoPermissionMessage();
+
     public abstract boolean execute(CommandSender sender, org.bukkit.command.Command command, String label, String[] args);
 
     @Override
@@ -23,10 +25,8 @@ public abstract class Command implements CommandExecutor {
                     return execute(sender, command, label, args);
                 } else {
                     for (SubCommand subCommand : getSubCommands()) {
-                        if (args.length == subCommand.getPosition() + 1) {
-                            if (args[subCommand.getPosition()].equalsIgnoreCase(subCommand.getName())) {
-                                return subCommand.execute(sender, command, label, args);
-                            }
+                        if (args[subCommand.getPosition()].equalsIgnoreCase(subCommand.getName())) {
+                            return subCommand.onSubCommand(sender, command, label, args, getNoPermissionMessage());
                         }
                     }
                 }
