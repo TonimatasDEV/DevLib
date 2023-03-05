@@ -3,6 +3,7 @@ apply plugin: 'maven-publish'
 
 group = 'net.tonimatasdev'
 version = "${project_version}"
+archivesBaseName = "DevLib"
 
 sourceCompatibility = 8
 compileJava.options.encoding = 'UTF-8'
