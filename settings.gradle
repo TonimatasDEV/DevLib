@@ -6,9 +6,3 @@ pluginManagement {
 }
 
 rootProject.name = 'DevLib'
-
-include(':api')
-project(':api').projectDir = file('api')
-
-include(':plugin')
-project(':plugin').projectDir = file('plugin')
