@@ -1,6 +1,0 @@
-group 'net.tonimatasdev'
-version "${project_version}"
-
-dependencies {
-    implementation project(':api')
-}
