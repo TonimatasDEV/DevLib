@@ -5,18 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
-public abstract class Command implements CommandExecutor {
-    public abstract String getName();
-    public abstract ArrayList<SubCommand> getSubCommands();
-
-    public abstract String getPermission();
-
-    public abstract String getNoPermissionMessage();
-
-    public abstract boolean execute(CommandSender sender, org.bukkit.command.Command command, String label, String[] args);
-
+public abstract class Command implements CommandExecutor, ICommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, org.bukkit.command.Command command, @NotNull String label, String[] args) {
         if (command.getName().equalsIgnoreCase(getName())) {
