@@ -8,26 +8,31 @@ archivesBaseName = "DevLib"
 sourceCompatibility = 8
 compileJava.options.encoding = 'UTF-8'
 
-configurations {
-    libraries
+allprojects {
+    apply plugin: 'java'
 }
 
-repositories {
-    mavenCentral()
-    maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
+subprojects {
+    configurations {
+        libraries
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    }
+
+    dependencies {
+        libraries 'org.jetbrains:annotations:24.0.1'
+
+        compileOnly 'org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT'
+        compileOnly configurations.libraries
+    }
 }
 
-dependencies {
-    libraries 'org.jetbrains:annotations:24.0.1'
-
-    compileOnly "org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT"
-    compileOnly configurations.libraries
-}
-
-println(configurations.libraries.collect())
-
-jar {
+tasks.register('genJar', Jar) {
+    dependsOn(subprojects.jar)
     from {
-        configurations.libraries.collect {it.isDirectory() ? it : zipTree(it) }
+        subprojects.collect {zipTree(it.jar.archiveFile)}
     }
 }

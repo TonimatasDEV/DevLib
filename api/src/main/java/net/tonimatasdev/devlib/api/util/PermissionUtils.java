@@ -1,4 +1,4 @@
-package net.tonimatasdev.devlib.util;
+package net.tonimatasdev.devlib.api.util;
 
 import org.bukkit.command.CommandSender;
 

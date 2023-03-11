@@ -1,0 +1,12 @@
+group 'net.tonimatasdev'
+version "${project_version}"
+
+dependencies {
+    implementation project(':plugin')
+}
+
+jar {
+    from {
+        configurations.libraries.collect {it.isDirectory() ? it : zipTree(it) }
+    }
+}

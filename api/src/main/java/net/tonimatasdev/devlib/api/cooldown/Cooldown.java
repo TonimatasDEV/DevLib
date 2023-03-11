@@ -1,4 +1,4 @@
-package net.tonimatasdev.devlib.cooldown;
+package net.tonimatasdev.devlib.api.cooldown;
 
 public class Cooldown {
     private long lastUsed;
